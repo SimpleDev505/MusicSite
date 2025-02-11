@@ -1,6 +1,8 @@
 <script>
+	import Buttonwithtooltip from './buttonwithtooltip.svelte';
 	import Navbar from './navbar.svelte';
 	import Progresscomp from './progresscomp.svelte';
+	import Scrolllist from './scrolllist.svelte';
 	let sidebaropen = $state(false);
 	let controls_over = $state(false);
 </script>
@@ -91,28 +93,22 @@
 									>songdescriptionnnnnnnnnnn</span
 								>
 								<div class="picked-song-ctrls-button">
-									<button style="background-color: transparent; border: none;padding:0;">
-										<div
-											class="tooltip"
-											style="padding: 10px; justify-content: center; align-items: center; width:fit-content; z-index: 1000; height:15px; color: #fff; position: absolute;  transform: translate(-10px,-25px);"
-										>
-											Play
-										</div>
-										<i class="material-icons" style="color: #fff; font-size: 3em;">play_circle</i>
-									</button>
-									<button style="background-color: transparent; border: none;padding:0;">
-										<div
-											class="tooltip"
-											style="padding: 10px; justify-content: center; align-items: center; width:fit-content; z-index: 1000; height:15px; color: #fff; position: absolute;  transform: translate(-10px,-25px);"
-										>
-											Play
-										</div>
-										<i class="material-symbols-outlined" style="color: grey; font-size: 2.25em;"
-											>add_circle</i
-										>
-									</button>
+									<Buttonwithtooltip icon_name="play_circle" tooltip="Play"></Buttonwithtooltip>
+									<Buttonwithtooltip
+										icon_name="add_circle"
+										tooltip="Add to playlist"
+										icon_outline={true}
+										icon_color="grey"
+										icon_size="2.5em"
+									></Buttonwithtooltip>
 								</div>
 							</div>
+							<Scrolllist numItems={10} width="27em" height="auto" itemWidth="3em"></Scrolllist>
+						</div>
+						<div>
+							<span>Recently Played</span>
+							<Scrolllist numItems={10} width="40em" height="auto" itemWidth="6.5em" itemHeight="6em"
+							></Scrolllist>
 						</div>
 					</div>
 				</div>
@@ -147,53 +143,41 @@
 		<!-- center -->
 		<div class="bnav-center">
 			<div class="songplay-controls">
-				<button>
-					<div
-						class="tooltip"
-						style="padding: 10px; justify-content: center; align-items: center; width:fit-content; z-index: 1000; height:15px; color: #fff; position: absolute;  transform: translate(-25px,-25px);"
-					>
-						MiniPlayer
-					</div>
-					<i class="material-icons player-control" style="font-size: 1.5em;">shuffle</i>
-				</button>
-				<button>
-					<div
-						class="tooltip"
-						style="padding: 10px; justify-content: center; align-items: center; width:fit-content; z-index: 1000; height:15px; color: #fff; position: absolute;  transform: translate(-25px,-25px);"
-					>
-						Previous
-					</div>
-					<i class="material-icons player-control" style="font-size: 1.8em; transform: scaleX(-1);"
-						>fast_forward</i
-					>
-				</button>
-				<button>
-					<div
-						class="tooltip"
-						style="padding: 10px; justify-content: center; align-items: center; width:fit-content; z-index: 1000; height:15px; color: #fff; position: absolute;  transform: translate(-10px,-25px);"
-					>
-						Play
-					</div>
-					<i class="material-icons" style="color: #fff; font-size: 3em;">play_circle</i>
-				</button>
-				<button>
-					<div
-						class="tooltip"
-						style="padding: 10px; justify-content: center; align-items: center; width:fit-content; z-index: 1000; height:15px; color: #fff; position: absolute;  transform: translate(-10px,-25px);"
-					>
-						Next
-					</div>
-					<i class="material-icons player-control" style="font-size: 1.8em;">fast_forward</i>
-				</button>
-				<button>
-					<div
-						class="tooltip"
-						style="padding: 10px; justify-content: center; align-items: center; width:fit-content; z-index: 1000; height:15px; color: #fff; position: absolute;  transform: translate(-25px,-25px);"
-					>
-						Repeat
-					</div>
-					<i class="material-symbols-outlined player-control" style="font-size: 1.5em;">laps</i>
-				</button>
+				<Buttonwithtooltip
+					icon_color="grey"
+					tooltip_pos="translate(-25px,-25px)"
+					icon_name="shuffle"
+					tooltip="Shuffle"
+					icon_size="1.5em"
+					b_class="player-control"
+				></Buttonwithtooltip>
+				<Buttonwithtooltip
+					icon_color="grey"
+					tooltip_pos="translate(-25px,-25px)"
+					icon_name="fast_forward"
+					tooltip="Previous"
+					icon_size="1.8em"
+					b_class="player-control"
+					inv_icon={true}
+				></Buttonwithtooltip>
+
+				<Buttonwithtooltip icon_name="play_circle" tooltip="Play"></Buttonwithtooltip>
+				<Buttonwithtooltip
+					icon_name="fast_forward"
+					tooltip="Next"
+					icon_color="grey"
+					icon_size="1.8em"
+				></Buttonwithtooltip>
+				<Buttonwithtooltip
+					icon_color="grey"
+					tooltip_pos="translate(-25px,-25px)"
+					icon_name="laps"
+					tooltip="Repeat"
+					icon_outline={true}
+					icon_size="1.5em"
+					b_class="player-control"
+					inv_icon={true}
+				></Buttonwithtooltip>
 			</div>
 			<div class="songplay-timing">
 				<span>0:00</span>
@@ -272,18 +256,21 @@
 		justify-content: flex-start;
 		align-content: flex-start;
 		width: 100%;
-		height: 15em;
+		height: 100%;
 		padding: 12px;
 		margin-top: 20px;
+		overflow: hidden;
 	}
 	.picked-card {
 		display: flex;
 		flex-direction: column;
-		justify-content: center;
+		justify-content: space-evenly;
 		align-items: flex-start;
 		font-size: 23px;
 		font-weight: bold;
 		color: #fff;
+		width: 100%;
+		height: 100%;
 	}
 	#picked-song {
 		margin-top: 15px;
@@ -291,11 +278,12 @@
 		flex-direction: row;
 		justify-content: flex-start;
 		align-items: center;
-		width: 18em;
-		height: 100%;
+		width: 100%;
+		overflow-x: hidden;
+		height: fit-content;
 	}
 	.picked-song-img {
-		width: 8em;
+		min-width: 8em;
 		height: 100%;
 		border-radius: 10px;
 		background-color: red;
@@ -308,6 +296,7 @@
 		justify-content: center;
 		overflow: hidden;
 		row-gap: 8px;
+		max-width: 8em;
 	}
 	.picked-song-ctrls-button {
 		display: flex;
@@ -401,7 +390,7 @@
 		scrollbar-color: transparent rgba(255, 255, 255, 0.4);
 		height: 100%;
 		width: 100%;
-		padding: 15px;
+		padding: 15px 5px 15px 15px;
 	}
 	/* -------- */
 	#Artist-Names {
@@ -492,21 +481,6 @@
 		flex-direction: column;
 		width: 35em;
 		height: 75%;
-	}
-	.songplay-controls button {
-		width: fit-content;
-		height: fit-content;
-		background-color: transparent;
-		border: none;
-	}
-	.player-control {
-		color: grey;
-	}
-	.songplay-controls button:hover .player-control {
-		color: #fff;
-	}
-	.songplay-controls button:hover .tooltip {
-		display: flex;
 	}
 	.songplay-controls {
 		display: flex;
@@ -604,7 +578,7 @@
 	.right {
 		justify-content: center;
 		width: 100%;
-		grid-area: right;
+		grid-area: rightI;
 	}
 	.bnav {
 		grid-area: bnav;
@@ -623,7 +597,7 @@
 		display: grid;
 		grid-template-areas:
 			'navc navc navc'
-			'left center right'
+			'left center rightI'
 			'bnav bnav bnav';
 		grid-template-columns: auto 1fr auto;
 		grid-template-rows: auto 1fr auto;
