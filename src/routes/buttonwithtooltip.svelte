@@ -43,8 +43,7 @@
 	.tooltip {
 		display: none;
 		background-color: #3e3e3e;
-		border-radius: 5px;
-	}
+		border-radius: 5px;}
 	.c-button:hover .tooltip {
 		display: flex;
 	}
