@@ -8,4 +8,4 @@ This is a **Spotify Clone** built using **Svelte** and **SvelteKit**. It’s des
 ## 🚀 Tech Stack
 - **Frontend:** Svelte, SvelteKit
 - **Styling:**  CSS
-- **API:** Spotify Web API / Custom Backend
+- **API:** Under development 
