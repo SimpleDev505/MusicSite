@@ -1,10 +1,24 @@
-<script>
+<script lang="ts">
 	import Buttonwithtooltip from './buttonwithtooltip.svelte';
 	import Navbar from './navbar.svelte';
 	import Progresscomp from './progresscomp.svelte';
 	import Scrolllist from './scrolllist.svelte';
+	import Scrolllistchild from './scrolllistchild.svelte';
 	let sidebaropen = $state(false);
 	let controls_over = $state(false);
+	let scroll_center = $state(false);
+	// window.addEventListener('scroll', () => {
+	// 	if (window.innerWidth < 100) {
+	// 		scroll_center = true;
+	// 	} else {
+	// 		scroll_center = false;
+	// 	}
+	// });
+	function handle_centerscroll(event: Event) {
+		const target = event.target as HTMLElement;
+		scroll_center = target.scrollTop > 50;
+		console.log(scroll_center);
+	}
 </script>
 
 <div class="home-layout">
@@ -44,72 +58,162 @@
 				<button>Music</button>
 				<button>Podcasts</button>
 			</div>
-			<div class="center-scroll">
-				<div class="playlist-grp">
-					<div class="playlist">
-						<div class="playlist-img"></div>
-						<span>Playlist</span>
+			<div class="center-scroll-cnt">
+				<div class="center-scroll" onscroll={handle_centerscroll}>
+					<div class="playlist-grp">
+						<div class="playlist">
+							<div class="playlist-img"></div>
+							<span>Playlist</span>
+						</div>
+						<div class="playlist">
+							<div class="playlist-img"></div>
+							<span>Playlist</span>
+						</div>
+						<div class="playlist">
+							<div class="playlist-img"></div>
+							<span>Playlist</span>
+						</div>
+						<div class="playlist">
+							<div class="playlist-img"></div>
+							<span>Playlist</span>
+						</div>
+						<div class="playlist">
+							<div class="playlist-img"></div>
+							<span>Playlist</span>
+						</div>
+						<div class="playlist">
+							<div class="playlist-img"></div>
+							<span>Playlist</span>
+						</div>
+						<div class="playlist">
+							<div class="playlist-img"></div>
+							<span>Playlist</span>
+						</div>
+						<div class="playlist">
+							<div class="playlist-img"></div>
+							<span>Playlist</span>
+						</div>
 					</div>
-					<div class="playlist">
-						<div class="playlist-img"></div>
-						<span>Playlist</span>
-					</div>
-					<div class="playlist">
-						<div class="playlist-img"></div>
-						<span>Playlist</span>
-					</div>
-					<div class="playlist">
-						<div class="playlist-img"></div>
-						<span>Playlist</span>
-					</div>
-					<div class="playlist">
-						<div class="playlist-img"></div>
-						<span>Playlist</span>
-					</div>
-					<div class="playlist">
-						<div class="playlist-img"></div>
-						<span>Playlist</span>
-					</div>
-					<div class="playlist">
-						<div class="playlist-img"></div>
-						<span>Playlist</span>
-					</div>
-					<div class="playlist">
-						<div class="playlist-img"></div>
-						<span>Playlist</span>
-					</div>
-				</div>
-				<!-- picked for you -->
-				<div class="picked-for-you">
-					<div class="picked-card">
-						<span>Picked for you</span>
-						<div id="picked-song">
-							<div class="picked-song-img"></div>
-							<div class="picked-song-ctrls">
-								<span style="color: grey; font-size: small; font-weight: 500;">Playlist</span>
-								<span style="white-space: nowrap; color: white; width: 100%;">Tamil Rocking</span>
-								<span
-									style="overflow: hidden; text-overflow:ellipsis; font-size:  12px;color: grey; width: 100%;font-weight:normal;"
-									>songdescriptionnnnnnnnnnn</span
-								>
-								<div class="picked-song-ctrls-button">
-									<Buttonwithtooltip icon_name="play_circle" tooltip="Play"></Buttonwithtooltip>
-									<Buttonwithtooltip
-										icon_name="add_circle"
-										tooltip="Add to playlist"
-										icon_outline={true}
-										icon_color="grey"
-										icon_size="2.5em"
-									></Buttonwithtooltip>
+					<!-- picked for you -->
+					<div class="picked-for-you">
+						<Scrolllistchild width="100%" height="100%">
+							<div class="picked-card">
+								<span>Picked for you</span>
+								<div id="picked-song">
+									<div class="picked-song-img"></div>
+									<div class="picked-song-ctrls">
+										<span style="color: grey; font-size: small; font-weight: 500;">Playlist</span>
+										<span style="white-space: nowrap; color: white; width: 100%;"
+											>Tamil Rocking</span
+										>
+										<span
+											style="overflow: hidden; text-overflow:ellipsis; font-size:  12px;color: grey; width: 100%;font-weight:normal;"
+											>songdescriptionnnnnnnnnnn</span
+										>
+										<div class="picked-song-ctrls-button">
+											<Buttonwithtooltip icon_name="play_circle" tooltip="Play"></Buttonwithtooltip>
+											<Buttonwithtooltip
+												icon_name="add_circle"
+												tooltip="Add to playlist"
+												icon_outline={true}
+												icon_color="grey"
+												icon_size="2.5em"
+											></Buttonwithtooltip>
+										</div>
+									</div>
+									<Scrolllist numItems={10} width="calc(100% - 16em)" height="auto" itemWidth="3em"
+									></Scrolllist>
+								</div>
+								<div>
+									<span>Recently Played</span>
+									<Scrolllist
+										numItems={10}
+										width="40em"
+										height="auto"
+										itemWidth="6.5em"
+										itemHeight="6em"
+									></Scrolllist>
+								</div>
+								<div>
+									<span>More Like ...</span>
+									<Scrolllist
+										numItems={10}
+										width="40em"
+										height="auto"
+										itemWidth="6.5em"
+										itemHeight="6em"
+									></Scrolllist>
+								</div>
+								<div>
+									<span>India's Best</span>
+									<Scrolllist
+										numItems={10}
+										width="40em"
+										height="auto"
+										itemWidth="6.5em"
+										itemHeight="6em"
+									></Scrolllist>
+								</div>
+								<div>
+									<span>Today Biggest hits ...</span>
+									<Scrolllist
+										numItems={10}
+										width="40em"
+										height="auto"
+										itemWidth="6.5em"
+										itemHeight="6em"
+									></Scrolllist>
+								</div>
+								<div>
+									<span>Jump Back in ...</span>
+									<Scrolllist
+										numItems={10}
+										width="40em"
+										height="auto"
+										itemWidth="6.5em"
+										itemHeight="6em"
+									></Scrolllist>
+								</div>
+								<div class="center-footer">
+									<div class="center-footer-cnt">
+										<h3>Company</h3>
+										<ul>
+											<li>About</li>
+											<li>Jobs</li>
+											<li>For the Record</li>
+										</ul>
+									</div>
+									<div class="center-footer-cnt">
+										<h3>Communities</h3>
+										<ul>
+											<li>For Artists</li>
+											<li>Developers</li>
+											<li>Advertising</li>
+											<li>Investors</li>
+											<li>Vendors</li>
+										</ul>
+									</div>
+									<div class="center-footer-cnt">
+										<h3>Useful Links</h3>
+										<ul>
+											<li>Support</li>
+											<li>Free Mobile App</li>
+										</ul>
+									</div>
+									<div class="center-footer-cnt">
+										<h3>Spotify Plans</h3>
+										<ul>
+											<li>Premium Individual</li>
+											<li>Premium Duo</li>
+											<li>Premium Family</li>
+											<li>Premium Student</li>
+											<li>Spotify Free</li>
+										</ul>
+									</div>
+									<div class="center-footer-cnt"></div>
 								</div>
 							</div>
-							<Scrolllist numItems={10} width="27em" height="auto" itemWidth="3em"></Scrolllist>
-						</div>
-						<div>
-							<span>Recently Played</span>
-							<Scrolllist numItems={10} width="40em" height="auto" itemWidth="6.5em" itemHeight="6em"
-							></Scrolllist>
-						</div>
+						</Scrolllistchild>
 					</div>
 				</div>
 			</div>
@@ -257,29 +361,24 @@
 		align-content: flex-start;
 		width: 100%;
 		height: 100%;
-		padding: 12px;
 		margin-top: 20px;
 		overflow: hidden;
 	}
 	.picked-card {
 		display: flex;
 		flex-direction: column;
-		justify-content: space-evenly;
 		align-items: flex-start;
 		font-size: 23px;
 		font-weight: bold;
 		color: #fff;
 		width: 100%;
-		height: 100%;
 	}
 	#picked-song {
-		margin-top: 15px;
 		display: flex;
 		flex-direction: row;
 		justify-content: flex-start;
 		align-items: center;
 		width: 100%;
-		overflow-x: hidden;
 		height: fit-content;
 	}
 	.picked-song-img {
@@ -294,8 +393,8 @@
 		flex-direction: column;
 		align-items: flex-start;
 		justify-content: center;
-		overflow: hidden;
 		row-gap: 8px;
+		margin-right: 15px;
 		max-width: 8em;
 	}
 	.picked-song-ctrls-button {
@@ -344,7 +443,7 @@
 		flex-direction: column;
 		justify-content: flex-start;
 		align-items: flex-start;
-		width: 25em;
+		width: 100%;
 		height: 100%;
 		padding: 20px;
 	}
@@ -384,13 +483,35 @@
 		font-weight: bold;
 		background-color: rgba(255, 255, 255, 0.1);
 	}
-	.center-scroll {
-		overflow-y: scroll;
-		scrollbar-width: thin;
-		scrollbar-color: transparent rgba(255, 255, 255, 0.4);
-		height: 100%;
+	.center-scroll-cnt {
 		width: 100%;
+		height: fit-content;
+	}
+	.center-scroll {
+		/* scrollbar-width: thin;
+		scrollbar-color: transparent rgba(255, 255, 255, 0.4); */
+		height: 60vh;
 		padding: 15px 5px 15px 15px;
+		/* height: calc(100vh - 8em);
+		width: 100%; */
+	}
+	.center-scroll-nav-color-change {
+		background: rgb(255, 255, 255);
+	}
+	.center-footer {
+		display: grid;
+		grid-template-columns: repeat(5, 1fr);
+		grid-template-rows: auto;
+		justify-content: center;
+		align-items: center;
+		width: 100%;
+		height: 14em;
+		background-color: #121212;
+	}
+	.center-footer-cnt {
+		width: 100%;
+		height: 100%;
+		margin: auto;
 	}
 	/* -------- */
 	#Artist-Names {
@@ -569,16 +690,19 @@
 	.left {
 		justify-content: left;
 		grid-area: left;
+		width: clamp(5em, 100%, 25em);
 	}
 	.center {
+		display: flex;
 		justify-content: center;
-		width: 100%;
 		grid-area: center;
+		height: 100%;
+		width: clamp(30em, 100%, 75%);
 	}
 	.right {
 		justify-content: center;
-		width: 100%;
 		grid-area: rightI;
+		width: clamp(5em, 100%, 25em);
 	}
 	.bnav {
 		grid-area: bnav;
@@ -592,6 +716,7 @@
 	.right,
 	.bnav {
 		display: flex;
+		overflow: hidden;
 	}
 	.home-layout {
 		display: grid;
@@ -602,8 +727,6 @@
 		grid-template-columns: auto 1fr auto;
 		grid-template-rows: auto 1fr auto;
 		padding: 0.3rem;
-		column-gap: 0.5em;
-		row-gap: 1em;
 		height: 100%;
 		min-height: 100vh;
 		background-color: #000;
