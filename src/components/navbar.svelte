@@ -4,22 +4,31 @@
 
 <div class="nav-cnt">
 	<div class="nav-search-cnt">
-		<button class="nav-home-button"
-			><i class="material-symbols-outlined" style="font-weight: 300;">home</i></button
+		<button
+			class="nav-home-button"
+			style="background-color: #fff;width:2.8em; height: 2.8em; margin-left: 25px;"
+			><i class="material-symbols-outlined" style="font-weight: 300; color: black;font-size:2em;"
+				>music_cast</i
+			></button
 		>
-		<div class="nav-search-grp">
-			<div
-				style="border-top-left-radius: 500px; border-bottom-left-radius: 500px;"
-				class="nav-icon-cnt"
+		<div class="nav-center-grp">
+			<button class="nav-home-button"
+				><i class="material-symbols-outlined" style="font-weight: 300;">home</i></button
 			>
-				<span class="material-icons">search</span>
-			</div>
-			<input id="nav-search" type="text" placeholder="What do you want to listen to?" />
-			<div
-				style="border-top-right-radius: 500px; border-bottom-right-radius: 500px;"
-				class="nav-icon-cnt"
-			>
-				<span class="material-icons">folder_copy</span>
+			<div class="nav-search-grp">
+				<div
+					style="border-top-left-radius: 500px; border-bottom-left-radius: 500px;"
+					class="nav-icon-cnt"
+				>
+					<span class="material-icons">search</span>
+				</div>
+				<input id="nav-search" type="text" placeholder="What do you want to listen to?" />
+				<div
+					style="border-top-right-radius: 500px; border-bottom-right-radius: 500px;"
+					class="nav-icon-cnt"
+				>
+					<span class="material-icons">folder_copy</span>
+				</div>
 			</div>
 		</div>
 		<!-- nav right -->
@@ -64,7 +73,7 @@
 		display: flex;
 		width: fit-content;
 		height: 100%;
-		gap:.5em;
+		gap: 0.5em;
 	}
 	/* nav -- */
 	.nav-home-button:hover {
@@ -90,6 +99,8 @@
 		flex: 1;
 		justify-content: space-between;
 		align-items: center;
+		padding-bottom: 6px;
+		padding-top: 6px;
 	}
 	.nav-icon-cnt {
 		display: flex;
@@ -97,6 +108,15 @@
 		height: 100%;
 		align-items: center;
 		background: transparent;
+	}
+	.nav-center-grp {
+		display: flex;
+		flex-direction: row;
+		justify-content: center;
+		align-items: center;
+		width: fit-content;
+		height: 100%;
+		column-gap: 10px;
 	}
 	.nav-search-grp:focus-within {
 		transition: 0.22s ease-in;
@@ -117,7 +137,7 @@
 	.nav-search-grp {
 		display: flex;
 		justify-content: center;
-		width: 35em;
+		width: 28em;
 		height: 100%;
 		border-radius: 500px;
 		background: #1f1f1f;
@@ -130,12 +150,13 @@
 		border: none;
 		outline: none;
 		color: #fff;
-		font-weight: 700;
+		font-weight: 550;
+		font-size: 1em;
 	}
 	/* other */
 	.nav-cnt {
 		display: flex;
 		width: 100%;
-		height: 3em;
+		height: 3.5em;
 	}
 </style>

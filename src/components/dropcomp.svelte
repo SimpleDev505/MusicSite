@@ -16,6 +16,7 @@
 	// --- Customization Parameters for the Trigger Icon ---
 	export let showIcon: boolean = false;
 	export let icon: string = 'expand_more'; // Material icon name (ensure Material Icons font is loaded)
+	export const button_bg: string = 'transparent'; // Material icon name (ensure Material Icons font is loaded)
 
 	// --- Parameter for Click Events on Dropdown Items ---
 	// This callback is invoked when the dropdown content receives a click or keyboard activation.

@@ -29,7 +29,7 @@
 	>
 		<DropItemComp>
 			<p
-				style="display: flex; align-items: center; justify-content: space-between; margin-left: 8px;"
+				style="display: flex; width: 100%; align-items: center; justify-content: space-between; margin-left: 8px;"
 			>
 				<a href="/account" style="color: #fff; text-decoration: none;">Account</a>
 				<i class="material-symbols-outlined" style="font-weight: 10;">open_in_new</i>
@@ -37,14 +37,14 @@
 		</DropItemComp>
 		<DropItemComp>
 			<p
-				style="display: flex; align-items: center; justify-content: space-between; margin-left: 8px;"
+				style="display: flex; width: 100%; align-items: center; justify-content: space-between; margin-left: 8px;"
 			>
 				<a href="/user" style="color: #fff; text-decoration: none;">Profile</a>
 			</p>
 		</DropItemComp>
 		<DropItemComp>
 			<p
-				style="display: flex; align-items: center; justify-content: space-between; margin-left: 8px;"
+				style="display: flex; width: 100%; align-items: center; justify-content: space-between; margin-left: 8px;"
 			>
 				<a href="/premium" style="color: #fff; text-decoration: none;">Upgrade To Premium</a>
 				<i class="material-symbols-outlined" style="font-weight: 10;">open_in_new</i>
@@ -52,7 +52,7 @@
 		</DropItemComp>
 		<DropItemComp>
 			<p
-				style="display: flex; align-items: center; justify-content: space-between; margin-left: 8px;"
+				style="display: flex; width: 100%; align-items: center; justify-content: space-between; margin-left: 8px;"
 			>
 				<a href="/support" style="color: #fff; text-decoration: none;">Support</a>
 				<i class="material-symbols-outlined" style="font-weight: 10;">open_in_new</i>
@@ -60,7 +60,7 @@
 		</DropItemComp>
 		<DropItemComp>
 			<p
-				style="display: flex; align-items: center; justify-content: space-between; margin-left: 8px;"
+				style="display: flex; width: 100%; align-items: center; justify-content: space-between; margin-left: 8px;"
 			>
 				<a href="/download" style="color: #fff; text-decoration: none;">Download</a>
 				<i class="material-symbols-outlined" style="font-weight: 10;">open_in_new</i>
@@ -68,7 +68,7 @@
 		</DropItemComp>
 		<DropItemComp>
 			<p
-				style="display: flex; align-items: center; justify-content: space-between; margin-left: 8px;"
+				style="display: flex; width: 100%; align-items: center; justify-content: space-between; margin-left: 8px;"
 			>
 				<a href="/settings" style="color: #fff; text-decoration: none;">Settings</a>
 			</p>
@@ -76,7 +76,7 @@
 		<Dropdividercomp width="100%" height="2px" color="grey" padding="0" />
 		<DropItemComp>
 			<p
-				style="display: flex; align-items: center; justify-content: space-between; margin-left: 8px;"
+				style="display: flex; width: 100%; align-items: center; justify-content: space-between; margin-left: 8px;"
 			>
 				<a href="/logout" style="color: #fff; text-decoration: none;">Log Out</a>
 			</p>

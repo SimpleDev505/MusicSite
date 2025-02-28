@@ -66,9 +66,7 @@
 				{#if descrp}
 					<div class="playlist-info">
 						<span style="font-size: 18px; color: #fff;">{playlist_name}</span>
-						<span style="color:grey; font-size: 12px; width:100%;"
-							>{playlist_author}</span
-						>
+						<span style="color:grey; font-size: 12px; width:100%;">{playlist_author}</span>
 					</div>
 				{/if}
 			</div>
@@ -105,9 +103,9 @@
 
 	.scroll-container {
 		display: flex;
-		overflow-x: auto;
-		gap: 10px;
-		padding: 10px;
+		overflow-x: hidden;
+		/* gap: 10px;
+		padding: 10px; */
 		white-space: nowrap;
 		scroll-snap-type: x mandatory;
 		scrollbar-width: thin;

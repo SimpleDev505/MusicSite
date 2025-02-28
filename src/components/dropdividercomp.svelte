@@ -14,5 +14,6 @@
 <style>
 	.dropdown-divider {
 		box-sizing: border-box;
+		border-radius: 100px;
 	}
 </style>
